@@ -32,6 +32,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
+  get: ^4.7.3
   lottie: ^3.3.2
 
 dev_dependencies:
@@ -62,7 +64,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: IBM
+    - family: IBM Plex Sans Arabic
       fonts:
         - asset: assets/fonts/IBMPlexSansArabic-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
