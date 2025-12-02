@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shobra_store_app/core/theme/app_theme.dart';
 import 'package:shobra_store_app/core/utils/styles.dart';
+import 'package:shobra_store_app/feature/presentation/screens/home_screen.dart';
+import 'package:shobra_store_app/feature/presentation/widgets/custom_background_container.dart';
+import 'package:shobra_store_app/feature/presentation/widgets/custom_curve_buttom.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,37 +21,24 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // navigateToHome();
+    navigateToHome();
   }
 
-  // Future<void> navigateToHome() async {
-  //   await Future.delayed(const Duration(seconds: 3));
-  //   if (mounted) {
-  //     Get.off(
-  //       () => const HomeScreen(),
-  //       transition: Transition.fadeIn,
-  //       duration: const Duration(milliseconds: 500),
-  //     );
-  //   }
-  // }
+  Future<void> navigateToHome() async {
+    await Future.delayed(const Duration(seconds: 3));
+    if (mounted) {
+      Get.off(
+        () => const HomeScreen(),
+        transition: Transition.fadeIn,
+        duration: const Duration(milliseconds: 500),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              mainColor,
-              mainColor,
-              Colors.white.withValues(alpha: 0.95),
-              Colors.white,
-            ],
-            stops: const [0.0, 0.3, 0.7, 1.0],
-          ),
-        ),
+      body: CustomBackgroundContainer(
         child: SafeArea(
           child: Column(
             children: [
@@ -117,40 +110,21 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
 
-              // Bottom Section
-              Transform.translate(
-                offset: Offset(0, 50.h),
-                child: Container(
-                  width: double.infinity,
-                  height: 150.h,
-                  decoration: BoxDecoration(
-                    color: mainColor,
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.elliptical(1.sw, 130),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: mainColor.withValues(alpha: 0.3),
-                        blurRadius: 20,
-                        offset: const Offset(0, -5),
-                      ),
-                    ],
-                  ),
-                  child: Center(
-                    child: Transform.translate(
-                      offset: Offset(0, -15.h),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'هيا لنبدأ',
-                            textAlign: TextAlign.center,
-                            style: Styles.mediumTitle.copyWith(
-                              color: Colors.white,
-                            ),
+              CustomButtomCurveShape(
+                child: Center(
+                  child: Transform.translate(
+                    offset: Offset(0, -15.h),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'هيا لنبدأ',
+                          textAlign: TextAlign.center,
+                          style: Styles.mediumTitle.copyWith(
+                            color: Colors.white,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
