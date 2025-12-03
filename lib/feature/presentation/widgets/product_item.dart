@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shobra_store_app/core/theme/app_theme.dart';
@@ -25,8 +26,10 @@ Widget buildProductCard() {
                   color: Colors.grey.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12.r),
                 ),
-                child: Image.network(
-                  'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png',
+                child: CachedNetworkImage(
+                  imageUrl:
+                      'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png',
+
                   fit: BoxFit.contain,
                 ),
               ),
