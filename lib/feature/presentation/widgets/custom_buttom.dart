@@ -33,7 +33,15 @@ class CustomButtonModifyed extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(8),
-            child: Text(text, style: textStyle ?? TextStyle(fontSize: 20.sp)),
+            child: Text(
+              text,
+              style:
+                  textStyle ??
+                  TextStyle(
+                    fontSize: 20.sp,
+                    fontFamily: "IBM Plex Sans Arabic",
+                  ),
+            ),
           ),
         ),
       ),

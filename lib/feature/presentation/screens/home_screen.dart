@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shobra_store_app/core/theme/app_theme.dart';
 import 'package:shobra_store_app/core/utils/styles.dart';
-import 'package:shobra_store_app/feature/data/model.dart';
 import 'package:shobra_store_app/feature/presentation/cubits/main_cubit.dart';
 import 'package:shobra_store_app/feature/presentation/cubits/main_cubit_states.dart';
 import 'package:shobra_store_app/feature/presentation/widgets/build_categories_item.dart';

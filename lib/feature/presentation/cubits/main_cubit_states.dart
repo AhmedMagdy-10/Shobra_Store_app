@@ -13,3 +13,9 @@ class ErrorGetDataState extends MainCubitStates {
 
   ErrorGetDataState({required this.errMessage});
 }
+
+class CartItemAddedState extends MainCubitStates {}
+
+class CartUpdatedState extends MainCubitStates {}
+
+class CartItemRemovedState extends MainCubitStates {}
