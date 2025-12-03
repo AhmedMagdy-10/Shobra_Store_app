@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shobra_store_app/feature/data/model.dart';
 import 'package:shobra_store_app/feature/presentation/widgets/product_item.dart';
 
-Widget buildProductsGrid() {
+Widget buildProductsGrid(BuildContext context, List<ProductModel> products) {
   return GridView.builder(
     shrinkWrap: true,
     physics: const NeverScrollableScrollPhysics(),
@@ -12,9 +13,9 @@ Widget buildProductsGrid() {
       crossAxisSpacing: 12.w,
       mainAxisSpacing: 12.h,
     ),
-    itemCount: 4,
+    itemCount: products.length,
     itemBuilder: (context, index) {
-      return buildProductCard();
+      return BuildProductCard(productModel: products[index]);
     },
   );
 }

@@ -22,10 +22,10 @@ class ProductShimmer extends StatelessWidget {
             Stack(
               children: [
                 Shimmer(
-                  duration: const Duration(seconds: 2),
-                  interval: const Duration(seconds: 1),
-                  color: Colors.grey.shade300,
-                  colorOpacity: 0.3,
+                  duration: const Duration(seconds: 3),
+                  interval: const Duration(seconds: 5),
+                  color: Colors.white,
+                  colorOpacity: 0,
                   enabled: true,
                   direction: const ShimmerDirection.fromLTRB(),
                   child: Container(
@@ -42,7 +42,8 @@ class ProductShimmer extends StatelessWidget {
                   top: 4.h,
                   left: 4.w,
                   child: Shimmer(
-                    duration: const Duration(seconds: 2),
+                    duration: const Duration(seconds: 3),
+                    interval: const Duration(seconds: 5),
                     color: Colors.grey.shade300,
                     child: Container(
                       width: 30.w,
@@ -60,7 +61,8 @@ class ProductShimmer extends StatelessWidget {
             SizedBox(height: 8.h),
 
             Shimmer(
-              duration: const Duration(seconds: 2),
+              duration: const Duration(seconds: 3),
+              interval: const Duration(seconds: 5),
               color: Colors.grey.shade300,
               child: Container(
                 width: double.infinity,
@@ -75,7 +77,8 @@ class ProductShimmer extends StatelessWidget {
             SizedBox(height: 6.h),
 
             Shimmer(
-              duration: const Duration(seconds: 2),
+              duration: const Duration(seconds: 3),
+              interval: const Duration(seconds: 5),
               color: Colors.grey.shade300,
               child: Container(
                 width: 80.w,
@@ -90,7 +93,8 @@ class ProductShimmer extends StatelessWidget {
             SizedBox(height: 8.h),
 
             Shimmer(
-              duration: const Duration(seconds: 2),
+              duration: const Duration(seconds: 3),
+              interval: const Duration(seconds: 5),
               color: Colors.grey.shade300,
               child: Container(
                 width: 60.w,
@@ -105,7 +109,8 @@ class ProductShimmer extends StatelessWidget {
             const Spacer(),
 
             Shimmer(
-              duration: const Duration(seconds: 2),
+              duration: const Duration(seconds: 3),
+              interval: const Duration(seconds: 5),
               color: Colors.grey.shade300,
               child: Container(
                 width: double.infinity,

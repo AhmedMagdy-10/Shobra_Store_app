@@ -3,100 +3,116 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shobra_store_app/core/theme/app_theme.dart';
 import 'package:shobra_store_app/core/utils/styles.dart';
+import 'package:shobra_store_app/feature/data/model.dart';
+import 'package:shobra_store_app/feature/presentation/widgets/product_details_bottom_sheet.dart';
 
-Widget buildProductCard() {
-  return Container(
-    decoration: BoxDecoration(
-      border: Border.all(color: Colors.blue),
-      borderRadius: BorderRadius.circular(16.r),
-      color: Colors.white,
-    ),
-    child: Padding(
-      padding: EdgeInsets.all(12.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Stack(
+class BuildProductCard extends StatelessWidget {
+  const BuildProductCard({super.key, required this.productModel});
+  final ProductModel productModel;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          builder: (context) =>
+              ProductDetailsBottomSheet(product: productModel),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.blue),
+          borderRadius: BorderRadius.circular(16.r),
+          color: Colors.white,
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(12.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Container(
-                width: double.infinity,
-                height: 135.h,
-                padding: EdgeInsets.all(8.w),
-                decoration: BoxDecoration(
-                  color: Colors.grey.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: CachedNetworkImage(
-                  imageUrl:
-                      'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png',
+              Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 135.h,
+                    padding: EdgeInsets.all(8.w),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    child: CachedNetworkImage(
+                      imageUrl: productModel.image,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
 
-                  fit: BoxFit.contain,
+                  Positioned(
+                    top: 3.h,
+                    left: 3.w,
+                    child: CircleAvatar(
+                      backgroundColor: secondColor,
+                      radius: 18,
+
+                      child: Icon(Icons.favorite_border, size: 22.sp),
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 8.h),
+
+              Text(
+                productModel.title,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                textAlign: TextAlign.right,
+                style: Styles.semibold14.copyWith(
+                  color: Colors.black87,
+                  fontSize: 13.sp,
                 ),
               ),
 
-              Positioned(
-                top: 3.h,
-                left: 3.w,
-                child: CircleAvatar(
-                  backgroundColor: secondColor,
-                  radius: 18,
+              SizedBox(height: 8.h),
 
-                  child: Icon(Icons.favorite_border, size: 22.sp),
+              // Price
+              Text(
+                "\$ ${productModel.price}",
+                style: Styles.semibold14.copyWith(
+                  color: mainColor,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const Spacer(),
+
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: mainColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 8.h),
+                  ),
+                  child: Text(
+                    '+ أضف للسلة',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      color: secondColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
-
-          SizedBox(height: 8.h),
-
-          Text(
-            'Fjallraven - Foldsack No. 1 Backpack',
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            textAlign: TextAlign.right,
-            style: Styles.semibold14.copyWith(
-              color: Colors.black87,
-              fontSize: 13.sp,
-            ),
-          ),
-
-          SizedBox(height: 8.h),
-
-          // Price
-          Text(
-            '\$109.95',
-            style: Styles.semibold14.copyWith(
-              color: mainColor,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          const Spacer(),
-
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: mainColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                padding: EdgeInsets.symmetric(vertical: 8.h),
-              ),
-              child: Text(
-                '+ أضف للسلة',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: secondColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }

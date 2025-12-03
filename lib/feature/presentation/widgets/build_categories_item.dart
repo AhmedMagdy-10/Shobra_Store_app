@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shobra_store_app/core/theme/app_theme.dart';
+import 'package:shobra_store_app/feature/presentation/cubits/main_cubit.dart';
 import 'package:shobra_store_app/feature/presentation/widgets/custom_buttom.dart';
 
 Widget buildCategories() {
@@ -22,7 +25,15 @@ Widget buildCategories() {
       itemBuilder: (context, index) {
         return Padding(
           padding: EdgeInsets.only(right: 10), // Space between buttons
-          child: CustomButtonModifyed(text: categories[index]),
+          child: CustomButtonModifyed(
+            onTapButton: () {},
+            text: categories[index],
+            color:
+                BlocProvider.of<MainCubit>(context).selectedCategory ==
+                    categories[index]
+                ? mainColor
+                : secondColor,
+          ),
         );
       },
     ),
