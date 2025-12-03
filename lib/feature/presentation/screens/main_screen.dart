@@ -19,25 +19,7 @@ class MainScreen extends StatelessWidget {
 
         return Scaffold(
           backgroundColor: const Color(0xffffffff),
-          appBar: CustomAppBar(
-            actions: [
-              Image.asset(
-                'assets/images/shubra_logo.png',
-                color: mainColor,
-                width: 160.w,
-              ),
-            ],
-            leading: Padding(
-              padding: EdgeInsets.only(left: 12.w),
-              child: Row(
-                children: [
-                  Image.asset('assets/images/Search.png', color: mainColor),
-                  SizedBox(width: 12.w),
-                  Image.asset('assets/images/Bell.png', color: mainColor),
-                ],
-              ),
-            ),
-          ),
+
           body: cubit.pages[cubit.currentIndexPage],
           bottomNavigationBar: const CustomButtomCurveShape(
             child: CustomNavigationBarIcons(),
