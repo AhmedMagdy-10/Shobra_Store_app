@@ -6,7 +6,7 @@ import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shobra_store_app/core/theme/app_theme.dart';
 import 'package:shobra_store_app/core/utils/styles.dart';
-import 'package:shobra_store_app/feature/presentation/screens/home_screen.dart';
+import 'package:shobra_store_app/feature/presentation/screens/main_screen.dart';
 import 'package:shobra_store_app/feature/presentation/widgets/custom_background_container.dart';
 import 'package:shobra_store_app/feature/presentation/widgets/custom_curve_buttom.dart';
 
@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
       Get.off(
-        () => const HomeScreen(),
+        () => const MainScreen(),
         transition: Transition.fadeIn,
         duration: const Duration(milliseconds: 500),
       );
