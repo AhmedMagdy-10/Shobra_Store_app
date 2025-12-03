@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shobra_store_app/core/helper/show_toasts_state.dart';
 import 'package:shobra_store_app/core/repo/home_repo.dart';
 import 'package:shobra_store_app/feature/data/cart_item_model.dart';
 import 'package:shobra_store_app/feature/data/model.dart';
@@ -15,7 +16,7 @@ class MainCubit extends Cubit<MainCubitStates> {
   int currentIndexPage = 0;
   List pages = [
     HomeScreen(),
-    CardScreen(),
+    CartScreen(),
     ReceiptScreen(),
     RocketScreen(),
     SettingScreen(),
@@ -90,6 +91,10 @@ class MainCubit extends Cubit<MainCubitStates> {
     }
 
     emit(CartItemAddedState());
+    showToast(
+      text: 'تم اضافة  المنتج الي السلة بنجاح',
+      state: ToastStates.success,
+    );
     emit(CartUpdatedState());
   }
 
