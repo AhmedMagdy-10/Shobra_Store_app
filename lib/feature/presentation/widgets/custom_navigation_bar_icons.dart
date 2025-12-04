@@ -74,7 +74,9 @@ class SelectedItem extends StatelessWidget {
         children: [
           Image.asset(
             stringIcon,
-            color: isSelected ? secondColor : Colors.grey,
+            color: isSelected
+                ? secondColor
+                : const Color.fromARGB(255, 189, 186, 186),
             width: 24.w,
             height: 24.h,
           ),
