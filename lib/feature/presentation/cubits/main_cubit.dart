@@ -133,4 +133,16 @@ class MainCubit extends Cubit<MainCubitStates> {
     cartItems.clear();
     emit(CartUpdatedState());
   }
+
+  bool isDarkMode = false;
+  void toggleMode() {
+    isDarkMode = !isDarkMode;
+    emit(SettingDarkModeChangeState());
+  }
+
+  String selectedLangauge = 'العربية';
+  void changeLangauge(String langauge) {
+    selectedLangauge = langauge;
+    emit(SettingLanguageChangeState());
+  }
 }

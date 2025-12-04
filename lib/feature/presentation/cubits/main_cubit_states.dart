@@ -19,3 +19,7 @@ class CartItemAddedState extends MainCubitStates {}
 class CartUpdatedState extends MainCubitStates {}
 
 class CartItemRemovedState extends MainCubitStates {}
+
+class SettingDarkModeChangeState extends MainCubitStates {}
+
+class SettingLanguageChangeState extends MainCubitStates {}
