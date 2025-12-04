@@ -30,21 +30,18 @@ class CartScreen extends StatelessWidget {
           }
 
           return Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+
             children: [
-              // Cart Items List
-              ElevatedButton(
-                onPressed: () {
-                  showClearCartDialog(context, cubit);
-                },
-                child: Row(
-                  children: [
-                    Text('مسح الكل ,', style: Styles.mediumTitle),
-                    Icon(Icons.delete_outline, color: mainColor),
-                  ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: GestureDetector(
+                  onTap: () {
+                    showClearCartDialog(context, cubit);
+                  },
+                  child: Text('مسح الكل ', style: Styles.semibold14),
                 ),
               ),
-              SizedBox(height: 15),
-
               Expanded(
                 child: ListView.builder(
                   padding: EdgeInsets.all(16.w),
@@ -151,7 +148,6 @@ class CartScreen extends StatelessWidget {
 
             SizedBox(width: 16.w),
 
-            // Product Info
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -226,7 +222,7 @@ class CartScreen extends StatelessWidget {
           color: mainColor,
           borderRadius: BorderRadius.circular(8.r),
         ),
-        child: Icon(icon, size: 18.sp, color: mainColor),
+        child: Icon(icon, size: 18.sp, color: secondColor),
       ),
     );
   }
@@ -249,7 +245,6 @@ class CartScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Summary Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -309,7 +304,11 @@ class CartScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.shopping_cart_checkout, size: 24.sp),
+                    Icon(
+                      Icons.shopping_cart_checkout,
+                      size: 24.sp,
+                      color: secondColor,
+                    ),
                     SizedBox(width: 12.w),
                     Text(
                       'إتمام الطلب',
