@@ -104,7 +104,16 @@ dependencies:
   shimmer_animation: ^2.1.0+1
 ```
 
-## 👨‍💻 المطور
+👨‍💻 حسابات المطور
+
+🔗 LinkedIn:
+https://www.linkedin.com/in/ahmed-magdy-873759243/
+
+🐙 GitHub:
+https://github.com/AhmedMagdy-10
+
+📘 Facebook:
+https://www.facebook.com/share/17kceLoQz7/
 
 تم تطوير المشروع كجزء من تكليف Shobra Store
 
